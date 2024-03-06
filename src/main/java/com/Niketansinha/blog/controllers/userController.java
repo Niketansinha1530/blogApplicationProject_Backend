@@ -38,7 +38,7 @@ public class userController {
 	//PUT - update user
 //	http://localhost:8080/api/users/?id=6
 	@PutMapping("/")
-	public ResponseEntity<userDto> updateUserById(@RequestParam(name = "id") int userId, @RequestBody userDto updatedUserDto) {
+	public ResponseEntity<userDto> updateUserById(@Valid @RequestParam(name = "id") int userId, @RequestBody userDto updatedUserDto) {
 	    userDto updatedDto = UserService.updateUser(updatedUserDto, userId);
 	    if (updatedDto != null) {
 	        return new ResponseEntity<>(updatedDto, HttpStatus.OK);
